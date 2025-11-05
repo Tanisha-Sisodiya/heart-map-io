@@ -14,7 +14,95 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      journal_entries: {
+        Row: {
+          content: string
+          created_at: string
+          emotions: Json | null
+          id: string
+          user_id: string
+          voice_url: string | null
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          emotions?: Json | null
+          id?: string
+          user_id: string
+          voice_url?: string | null
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          emotions?: Json | null
+          id?: string
+          user_id?: string
+          voice_url?: string | null
+        }
+        Relationships: []
+      }
+      mood_logs: {
+        Row: {
+          context: string | null
+          created_at: string
+          emotion: string
+          entry_id: string | null
+          id: string
+          intensity: number
+          user_id: string
+        }
+        Insert: {
+          context?: string | null
+          created_at?: string
+          emotion: string
+          entry_id?: string | null
+          id?: string
+          intensity: number
+          user_id: string
+        }
+        Update: {
+          context?: string | null
+          created_at?: string
+          emotion?: string
+          entry_id?: string | null
+          id?: string
+          intensity?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mood_logs_entry_id_fkey"
+            columns: ["entry_id"]
+            isOneToOne: false
+            referencedRelation: "journal_entries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
