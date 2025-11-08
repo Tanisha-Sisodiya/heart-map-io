@@ -24,13 +24,14 @@ const Landing = () => {
           </p>
           
           <div className="flex gap-4 justify-center">
-            <Button 
-              size="lg" 
-              onClick={() => navigate("/auth")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
-            >
-              Start Your Journey
-            </Button>
+          <p
+  className="text-lg font-medium text-primary-foreground px-6 py-3 rounded-lg bg-primary shadow-lg"
+>
+  Start Your Journey
+</p>
+
+
+
             <Button 
               size="lg" 
               variant="outline"
@@ -80,13 +81,7 @@ const Landing = () => {
           <p className="text-muted-foreground mb-6">
             Join thousands finding clarity and peace through EchoMind.
           </p>
-          <Button 
-            size="lg"
-            onClick={() => navigate("/auth")}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
-          >
-            Get Started Free
-          </Button>
+          
         </div>
       </div>
     </div>

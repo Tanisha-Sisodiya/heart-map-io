@@ -83,6 +83,7 @@ const Journal = () => {
           content: input,
           emotions: data.emotions,
         });
+        
 
         // Save mood log if emotions detected
         if (data.emotions && data.emotions.length > 0) {
